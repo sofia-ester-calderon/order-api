@@ -1,0 +1,25 @@
+{
+  "name": "order-api",
+  "version": "1.0.0",
+  "description": "Tech challenge for Lalamove",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofia-ester-calderon/order-api.git"
+  },
+  "author": "Sofia Calderon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofia-ester-calderon/order-api/issues"
+  },
+  "homepage": "https://github.com/sofia-ester-calderon/order-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "google-distance-matrix": "^1.1.1",
+    "is-valid-coordinates": "^1.0.0",
+    "mysql": "^2.17.1"
+  }
+}

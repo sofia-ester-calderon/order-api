@@ -3,7 +3,7 @@ const distanceCalculator = require('./distanceCalculator');
 
 const pool = mysql.createPool({
     connectionLimit : 100,
-    host     : 'localhost',
+    host     : 'mysql',
     user     : 'user',
     password : 'password',
     database : 'orders',
@@ -13,14 +13,6 @@ const pool = mysql.createPool({
 const orderStatus = ['UNASSIGNED', 'SUCCESS', 'TAKEN'];
 const tableName = "orders";
 let lockedIds = [];
-
-/*let createTableQuery = "CREATE TABLE lalamove_orders.orders (id INT NOT NULL AUTO_INCREMENT, distance INT NULL, status VARCHAR(45) NULL, PRIMARY KEY (id))";
-let query2 = mysql.format(createTableQuery);
-processQuery(query2).then(response => {
-    console.log("TABLE SUCCESFULLY CREATED", response);
-}).catch(err => {
-    console.log(err);
-    console.log("ERROR CREATING TABLE ", err.message)})*/
 
 async function insertNewOrder(originLong, originLat, destLong, destLat) {
     let distance = await distanceCalculator.getDistanceFromCoordinates(originLat, originLong, destLat, destLong);

@@ -1,0 +1,1 @@
+CREATE TABLE orders.orders (id INT NOT NULL AUTO_INCREMENT, distance INT NULL, status VARCHAR(45) NULL, PRIMARY KEY (id))

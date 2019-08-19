@@ -18,7 +18,7 @@ function getDistanceFromCoordinates(originLong, originLat, destLong, destLat) {
             if (distances.rows[0].elements[0].status == 'OK') {
                 resolve(distances.rows[0].elements[0].distance.value);
             } else {
-                reject(new Error('The destination is not reachable by land'));
+                reject(new Error('The destination is not reachable by land', distances.rows[0].elements[0].status));
             }
         })
     });

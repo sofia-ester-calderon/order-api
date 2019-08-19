@@ -10,18 +10,16 @@ services:
     depends_on:
       - mysql
     command: npm run start
+    links:
+      - mysql:mysql
   mysql:
     image: mysql:5.7
-    ports:
-      - "3306:3306"
-    expose:
-      - "3306"
     environment:
       MYSQL_DATABASE: "orders"
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: "password"
       MYSQL_USER: "user"
     volumes:
-      - mysql-orders:/var/lib/mysql
+      - ./mysql-orders:/docker-entrypoint-initdb.d
 volumes:
   mysql-orders:

@@ -1,9 +1,13 @@
+#datenbank initialisieren
+#node initialize.js #zum initialisieren
+PASS=`pwgen -s 40 1`
+mysql -uroot <<MYSQL_SCRIPT
+CREATE DATABASE $1;
+CREATE USER '$1'@'localhost' IDENTIFIED BY '$PASS';
+GRANT ALL PRIVILEGES ON $1.* TO '$1'@'localhost';
+FLUSH PRIVILEGES;
+MYSQL_SCRIPT
+echo "MySQL user created."
+echo "Username:   $1"
+echo "Password:   $PASS"
 
-docker pull mysql/mysql-server
-docker run --name=mysqlorder -d mysql/mysql-serve
-docker logs mysqlorder 2>&1 | grep GENERATED
-docker exec -it mysqlorder mysql -uroot -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'Groucho#90';
-
-docker exec -it mysql1 bash 
-bash-4.2#

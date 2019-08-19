@@ -1,7 +1,7 @@
 const isValidCoordinates = require('is-valid-coordinates');
 
-let errorResponder = function(res) {
-    res.status(400).send({"error": "Wrong parameter"});
+let errorResponder = function(res, param) {
+    res.status(400).send({'error': 'Wrong parameter ' + param});
 }
 
 function validateIntParameter(param, res) {

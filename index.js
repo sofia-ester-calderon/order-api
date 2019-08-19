@@ -8,17 +8,17 @@ const app = express();
 app.use(express.json());
 app.use(logger);
 
-const API_PREFIX = '/orders'
+const API_PREFIX = '/orders';
 
 let errorResponder = function(res, err) {
-    res.status(400).send({"error": err.message});
+    res.status(400).send({'error': err.message});
 }
 
 app.patch(API_PREFIX + '/:id', (req, res) => {
     let orderId = validator.validateIntParameter(req.params.id, res);
 
     dbCommunicator.takeOrder(parseInt(orderId))
-        .then(status => res.send({"status": status}))
+        .then(status => res.send({'status': status}))
         .catch(err => errorResponder(res, err));
 });
 

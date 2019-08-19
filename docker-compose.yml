@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   app:
     image: node:alpine
@@ -15,8 +15,8 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: "orders"
-      MYSQL_PASSWORD: 'password'
+      MYSQL_DATABASE: "lalamove_db"
+      MYSQL_PASSWORD: "password"
       MYSQL_ROOT_PASSWORD: "password"
       MYSQL_USER: "user"
     volumes:

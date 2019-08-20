@@ -3,10 +3,10 @@ const distanceCalculator = require('./distanceCalculator');
 
 const pool = mysql.createPool({
     connectionLimit : 100,
-    host     : 'localhost', //mysql
-    user     : 'root', //user
-    password : 'Groucho#90', //password
-    database : 'lalamove_orders', //lalamove_db
+    host     : 'mysql',
+    user     : 'user',
+    password : 'password',
+    database : 'lalamove_db',
     debug    :  false
 });
 
@@ -31,7 +31,8 @@ async function takeOrder(id) {
 
     let order = await getOrder(id);
     if (!order) {
-        throw new Error('Order not found');
+        unlockOrder();
+        throw {message: 'Order not found', status: 404};
     }
     if (order.status != orderStatus[0]) {
         return order.status;
@@ -80,8 +81,7 @@ function processQuery(query) {
     return new Promise((resolve, reject) => {
         pool.query(query,(err, data) => {
             if (err) {
-                console.log(err);
-                reject(new Error('Error processing query', err.message));
+                reject({message: 'Error processing query: ' + err.message, status: 500});
             }
             resolve(data);
         })

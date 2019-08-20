@@ -2,10 +2,10 @@ const express = require('express');
 const validator = require('./validator');
 const dbCommunicator = require('./dbCommunicator');
 
-var router = express.Router();
+let router = express.Router();
 
 let errorResponder = function(res, err) {
-    res.status(400).send({'error': err.message});
+    res.status(err.status || 400).send({'error': err.message});
 }
 
 router.patch('/:id', function(req, res) {

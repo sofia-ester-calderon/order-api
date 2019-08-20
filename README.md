@@ -13,8 +13,9 @@ Before starting, change the Google API key to your own key. The Google API key c
 
 In docker, simply run
 
-cd <your-path>/order-api
-docker-compose up
+`cd <your-path>/order-api`
+
+`docker-compose up`
 
 ## Aditional information
 
@@ -30,16 +31,16 @@ No start.sh was included, as it was not needed to complete the assignment. The m
 RESTful API listening on port 8080
 
 ### Place order
-- Method: POST
-- URL path: /order
+- Method: `POST`
+- URL path: `/orders`
 
 ### Take order
-- Method: PATCH
-- URL path: /orders/:id
+- Method: `PATCH`
+- URL path: `/orders/:id`
 
 ### Order list
-- Method: GET
-- URL path: /orders?page=:page&limit=:limit
+- Method: `GET`
+- URL path: `/orders?page=:page&limit=:limit`
 
 ## Tests
 

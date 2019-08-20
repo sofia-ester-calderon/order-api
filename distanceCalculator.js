@@ -1,5 +1,5 @@
 const distance = require('google-distance-matrix');
-const API_KEY = 'AIzaSyBOtLUbjZCRAiFBc6bReP8hd3KBU_pOPuY';
+const API_KEY = 'your-own-key';
 
 
 function getDistanceFromCoordinates(originLong, originLat, destLong, destLat) {
